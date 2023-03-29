@@ -16,7 +16,6 @@ const Home = () => {
     if (storedCart) {
       setCart(storedCart);
     }
-    console.log(storedCart);
 
   },[meals])
   //cart btn funtion
@@ -34,13 +33,13 @@ const Home = () => {
   }
 
   return (
-    <div className="flex gap-4">
-      <div className="cards w-9/12 grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+    <div className="flex gap-4 container mx-auto flex-col md:flex-row">
+      <div className="cards w-10/12 mx-auto mb-5 md:w-9/12 grid md:grid-cols-2 lg:grid-cols-3 gap-3">
         {meals.map((meal) => (
           <Card meal={meal} key={meal.idMeal} handleBtn={handleBtn}></Card>
         ))}
       </div>
-      <div className="carts w-3/12">
+      <div className="carts w-full md:w-3/12 px-4">
         <Cart cart={cart}/>
       </div>
     </div>

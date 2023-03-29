@@ -13,6 +13,7 @@ const Cart = ({ cart }) => {
       {mealName.map((meal,index) => (
         <li key={index}>{meal}</li>
       ))}
+          <button className="btn btn-accent mt-4 block w-full mx-auto">Delete</button>
     </div>
   );
 };
