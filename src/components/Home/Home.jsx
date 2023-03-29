@@ -11,10 +11,26 @@ const Home = () => {
       .then((data) => setMeals(data.meals));
   }, []);
 
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem('meal-cart'));
+    if (storedCart) {
+      setCart(storedCart);
+    }
+    console.log(storedCart);
+
+  },[meals])
   //cart btn funtion
   const handleBtn = (meal) => {
     const newCart = [...cart, meal];
     setCart(newCart);
+    const savedCart = [];
+    const previousCart = JSON.parse(localStorage.getItem('meal-cart'));
+    if (previousCart) {
+      savedCart.push(...previousCart, meal);
+    } else {
+      savedCart.push(meal);
+    }
+    localStorage.setItem('meal-cart', JSON.stringify(savedCart))
   }
 
   return (

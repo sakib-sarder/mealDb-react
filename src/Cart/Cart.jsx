@@ -7,7 +7,7 @@ const Cart = ({ cart }) => {
     // console.log(singleMeal.strMeal);
     mealName.push(singleMeal.strMeal);
   }
-  console.log(mealName);
+//   console.log(mealName);
   return (
     <div>
       {mealName.map((meal,index) => (

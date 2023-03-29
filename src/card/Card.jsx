@@ -15,7 +15,6 @@ const Card = ({ meal, handleBtn }) => {
         <div className="pl-2 py-2">
           <h2 className="card-title">{name}</h2>
           <p>Category: {category}</p>
-          <p>Price: {}</p>
         </div>
         <div className="card-actions">
           <button
