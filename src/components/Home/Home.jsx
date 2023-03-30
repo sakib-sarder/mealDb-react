@@ -31,6 +31,19 @@ const Home = () => {
     }
     localStorage.setItem('meal-cart', JSON.stringify(savedCart))
   }
+  const deleteBtn = ()=>{
+    localStorage.removeItem('meal-cart');
+    setCart([]);
+  }
+  const deleteSingleBtn = (meal) => {
+    const localItem = JSON.parse(localStorage.getItem('meal-cart'));
+    const remaining = localItem.filter(local => local.strMeal !== meal);
+    localStorage.setItem('meal-cart', JSON.stringify(remaining));
+    //without localStorage
+    const previous = cart.filter(cartMeal => cartMeal.strMeal !== meal);
+    setCart(previous);
+
+  }
 
   return (
     <div className="flex gap-4 container mx-auto flex-col md:flex-row">
@@ -40,7 +53,7 @@ const Home = () => {
         ))}
       </div>
       <div className="carts w-full md:w-3/12 px-4">
-        <Cart cart={cart}/>
+        <Cart cart={cart} deleteBtn={deleteBtn} deleteSingleBtn={deleteSingleBtn} />
       </div>
     </div>
   );

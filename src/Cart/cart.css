@@ -1,0 +1,7 @@
+.listStyle{
+    list-style: decimal;
+    background-color: aquamarine;
+    margin-bottom: 4px;
+    padding: 4px;
+    border-radius: 10px;
+}
